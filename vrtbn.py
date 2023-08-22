@@ -17,10 +17,17 @@ def rastgele():
     cursor.execute("INSERT INTO Tablo1 (zaman, tarih, anahtark, deger) VALUES(?,?,?,?)", (zaman, tarih, anahtark, deger))
     con.commit()
 tablo()
-i = 0
-while i < 10:
-    rastgele()
-    time.sleep(1)
-    i += 1
+#i = 0
+#while i < 10:
+#    rastgele()
+#    time.sleep(1)
+#    i += 1
+
+def degeral():
+    cursor.execute(" SELECT * FROM Tablo1 WHERE deger =4.0 ")
+    data = cursor.fetchall()
+    for i in data:
+        print(i)
+degeral()
 
 con.close()
