@@ -30,4 +30,29 @@ def degeral():
         print(i)
 degeral()
 
+def guncelle():
+    cursor.execute(" SELECT * FROM Tablo1 ")
+    print("öncesi---------------")
+    data = cursor.fetchall()
+    for i in data:
+        print(i)
+    cursor.execute("UPDATE Tablo1 SET deger = 99 WHERE deger = 4")
+    cursor.execute(" SELECT * FROM Tablo1 ")
+    print("sonrası---------------")
+    data = cursor.fetchall()
+    for i in data:
+        print(i)
+
+guncelle()
+
+def sil():
+    cursor.execute("DELETE FROM Tablo1 WHERE deger = 5 ")
+    cursor.execute("SELECT * FROM Tablo1")
+    print("silindi")
+    data = cursor.fetchall()
+    for i in data:
+        print(i)
+    con.commit()
+
+sil()    
 con.close()
